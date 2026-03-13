@@ -14,21 +14,31 @@ public class Driver : MonoBehaviour
         if (Keyboard.current.wKey.isPressed)
         {
             move = 1f;
+
+            if (Keyboard.current.aKey.isPressed)
+            {
+                streer = 1f;
+            }
+        
+            else if (Keyboard.current.dKey.isPressed)
+            {
+                streer = -1f;
+            }
         }
         
-        if (Keyboard.current.sKey.isPressed)
+        else if (Keyboard.current.sKey.isPressed)
         {
             move = -1f;
-        }
+
+            if (Keyboard.current.aKey.isPressed)
+            {
+                streer = 1f;
+            }
         
-        if (Keyboard.current.aKey.isPressed)
-        {
-            streer = 1f;
-        }
-        
-        if (Keyboard.current.dKey.isPressed)
-        {
-            streer = -1f;
+            else if (Keyboard.current.dKey.isPressed)
+            {
+                streer = -1f;
+            }
         }
 
         float moveAmount = move * moveSpeed * Time.deltaTime;
