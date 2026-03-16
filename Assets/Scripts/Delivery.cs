@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
-    bool delivery = false;
+    bool hasIcecreem = false;
 
     void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -11,13 +11,13 @@ public class Delivery : MonoBehaviour
         {
             Debug.Log("Picked up");
             Debug.Log("Dillever the Icecreem");
-            delivery = true;
+            hasIcecreem = true;
         }
 
-        else if(collision.CompareTag("Customer") && delivery)
+        if(collision.CompareTag("Customer") && hasIcecreem)
         {
             Debug.Log("Delivered");
-            delivery = false;
+            hasIcecreem = false;
         }
     }
 }
